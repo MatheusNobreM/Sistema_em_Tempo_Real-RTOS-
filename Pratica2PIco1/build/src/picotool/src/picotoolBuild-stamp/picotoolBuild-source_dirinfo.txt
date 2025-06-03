@@ -4,6 +4,6 @@
 
 method=source_dir
 command=
-source_dir=/home/matheus-moreira/Faculdade/2025.1/Rtos/Pratica2PIco1/build/_deps/picotool-src
+source_dir=/home/matheus-moreira/Faculdade/2025.1/Rtos/Sistema_em_Tempo_Real-RTOS-/Pratica2PIco1/build/_deps/picotool-src
 work_dir=
 

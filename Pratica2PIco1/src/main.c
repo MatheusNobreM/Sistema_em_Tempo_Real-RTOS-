@@ -4,17 +4,18 @@
 #include <stdio.h>
 
 void led_task(void *pvParameters) {
-    uint led_pin = *(uint *)pvParameters; // Recebe o pino GPIO
-    const char *task_name = pcTaskGetName(NULL); // Nome da tarefa
+    uint led_pin = *(uint *)pvParameters; 
+    const char *task_name = pcTaskGetName(NULL);
     gpio_init(led_pin);
     gpio_set_dir(led_pin, GPIO_OUT);
+
     while (true) {
         printf("%s: LED ON (GPIO%d)\n", task_name, led_pin);
         gpio_put(led_pin, 1);
-        vTaskDelay(pdMS_TO_TICKS(1000)); // 1s delay
+        vTaskDelay(pdMS_TO_TICKS(1000)); 
         printf("%s: LED OFF (GPIO%d)\n", task_name, led_pin);
         gpio_put(led_pin, 0);
-        vTaskDelay(pdMS_TO_TICKS(1000)); // 1s delay
+        vTaskDelay(pdMS_TO_TICKS(1000)); 
     }
 }
 

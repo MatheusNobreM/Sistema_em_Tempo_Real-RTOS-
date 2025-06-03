@@ -1,4 +1,4 @@
-# Install script for directory: /home/matheus-moreira/Faculdade/2025.1/Rtos/Pratica2PIco1/build/_deps/picotool-subbuild
+# Install script for directory: /home/matheus-moreira/Faculdade/2025.1/Rtos/Sistema_em_Tempo_Real-RTOS-/Pratica2PIco1/build/_deps/picotool-subbuild
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/matheus-moreira/Faculdade/2025.1/Rtos/Pratica2PIco1/build/_deps/picotool-subbuild/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/matheus-moreira/Faculdade/2025.1/Rtos/Sistema_em_Tempo_Real-RTOS-/Pratica2PIco1/build/_deps/picotool-subbuild/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
