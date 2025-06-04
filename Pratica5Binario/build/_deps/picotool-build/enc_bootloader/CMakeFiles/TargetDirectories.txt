@@ -1,0 +1,2 @@
+/home/matheus-moreira/Documentos/Faculdade/2025.1/Rtos/Sistema_em_Tempo_Real-RTOS-/Pratica5Binario/build/_deps/picotool-build/enc_bootloader/CMakeFiles/edit_cache.dir
+/home/matheus-moreira/Documentos/Faculdade/2025.1/Rtos/Sistema_em_Tempo_Real-RTOS-/Pratica5Binario/build/_deps/picotool-build/enc_bootloader/CMakeFiles/rebuild_cache.dir
