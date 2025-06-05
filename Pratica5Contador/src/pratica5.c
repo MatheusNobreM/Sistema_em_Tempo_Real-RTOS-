@@ -8,16 +8,15 @@
 #define BUTTON_PIN 15
 #define LED_PIN 16
 
-uint click = 0;
-
 SemaphoreHandle_t semaphone;
 QueueHandle_t queue;
 
+uint click = 0;
 typedef enum {
     LED_TOGGLE 
 } led_command_t;
 
-void button_task(void *pvParameters) {
+void button(void *pvParameters) {
     while (1) {
         if ((xSemaphoreTake(semaphone, portMAX_DELAY) == pdTRUE) && click) {
             printf("Semaforo consumido pela task do botão\n");
@@ -32,10 +31,10 @@ void button_task(void *pvParameters) {
     }
 }
 
-void led_task(void *pvParameters) {
+void led(void *pvParameters) {
     led_command_t command;
     while (1) {
-        if (xQueueReceive(queue, &command, portMAX_DELAY) == pdTRUE) {
+        if (xQueueReceive(queue, &command, portMAX_DELAY) == pdTRUE) {//xSemaphoreTake(semaphone, pdMS_TO_TICKS(100))
             if (command == LED_TOGGLE) {
                 gpio_put(LED_PIN, !gpio_get(LED_PIN));
             }
@@ -43,14 +42,14 @@ void led_task(void *pvParameters) {
     }
 }
 
-void semaphore_test(void *pvParameteres) {
+void semaphone_task(void *pvParameteres) {
 	while (1) {
 		if (xSemaphoreTake(semaphone, portMAX_DELAY) == pdTRUE) {
-			printf("Semaforo livre\n");
+            printf("Livre\n");
 			vTaskDelay(300); // para visualização
 			xSemaphoreGive(semaphone);
 		} else {
-			printf("Semaforo bloqueado\n");
+			printf("Bloqueado\n");
 			vTaskDelay(300); // para visualização
 		}
 	}
@@ -62,7 +61,7 @@ void button_isr(uint gpio, uint32_t events) {
 
     if (current_time - last_interrupt_time > 300) { // 300 ms debounce
         BaseType_t higherPriorityTaskWoken = pdFALSE;
-        xSemaphoreGiveFromISR(semaphone, &higherPriorityTaskWoken);
+        xSemaphoreGive(semaphone, &higherPriorityTaskWoken);
         portYIELD_FROM_ISR(higherPriorityTaskWoken);
         click = !click;
         last_interrupt_time = current_time;
@@ -85,9 +84,9 @@ int main() {
     
     queue = xQueueCreate(10, sizeof(led_command_t));
 
-    xTaskCreate(button_task, "ButtonTask", 256, NULL, 1, NULL);
-    xTaskCreate(led_task, "LedTask", 256, NULL, 1, NULL);
-    xTaskCreate(semaphore_test, "Test_Semaforo", 256, NULL, 1, NULL);
+    xTaskCreate(button, "ButtonTask", 256, NULL, 1, NULL);
+    xTaskCreate(led, "LedTask", 256, NULL, 1, NULL);
+    xTaskCreate(semaphone_task, "SemaforoTask", 256, NULL, 2, NULL);
 
     setup_button_interrupt();
     vTaskStartScheduler();
