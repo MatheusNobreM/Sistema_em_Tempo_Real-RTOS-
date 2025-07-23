@@ -1,0 +1,6 @@
+/home/matheus-moreira/Documentos/Faculdade/2025.1/Rtos/Sistema_em_Tempo_Real-RTOS-/ProjetoFinalV3/build/_deps/picotool/picotool
+/home/matheus-moreira/Documentos/Faculdade/2025.1/Rtos/Sistema_em_Tempo_Real-RTOS-/ProjetoFinalV3/build/_deps/picotool/picotoolTargets.cmake
+/home/matheus-moreira/Documentos/Faculdade/2025.1/Rtos/Sistema_em_Tempo_Real-RTOS-/ProjetoFinalV3/build/_deps/picotool/picotoolTargets-release.cmake
+/home/matheus-moreira/Documentos/Faculdade/2025.1/Rtos/Sistema_em_Tempo_Real-RTOS-/ProjetoFinalV3/build/_deps/picotool/picotoolConfig.cmake
+/home/matheus-moreira/Documentos/Faculdade/2025.1/Rtos/Sistema_em_Tempo_Real-RTOS-/ProjetoFinalV3/build/_deps/picotool/picotoolConfigVersion.cmake
+/home/matheus-moreira/Documentos/Faculdade/2025.1/Rtos/Sistema_em_Tempo_Real-RTOS-/ProjetoFinalV3/build/_deps/picotool/enc_bootloader.elf
